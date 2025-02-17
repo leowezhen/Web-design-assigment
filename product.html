@@ -1,0 +1,130 @@
+<?php
+session_start();
+include('header.php');
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: #363636;
+}
+table {
+    margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color:rgb(151, 151, 151);
+}
+td {
+padding: 5px;
+}
+td:hover {
+    background-color:rgb(84, 94, 96);
+}
+img {
+    width: 402px;
+    height: 502px;
+}
+</style>
+</head>
+<body>
+    
+<table id="movietable">
+  <tr>
+    <td><img src="image/127 hours.jpg" alt="127 Hours"></td>
+    <td><img src="image/annabelle.jpg" alt="Annabelle"></td>
+    <td><img src="image/joker.jpg" alt="Joker"></td>
+  </tr>
+  <tr>
+    <td><img src="image/avengers.jpg" alt="Avengers"></td>
+    <td><img src="image/barbie.jpg" alt="Barbie"></td>
+    <td><img src="image/batman.jpg" alt="Batman"></td>
+  </tr>
+  <tr>
+    <td><img src="image/black panther.jpg" alt="Black Panther"></td>
+    <td><img src="image/deadpool.jpg" alt="Deadpool"></td>
+    <td><img src="image/dune.jpg" alt="Dune"></td>
+  </tr>
+  <tr>
+    <td><img src="image/E.T.jpg" alt="E.T"></td>
+    <td><img src="image/five night and freddy.jpg" alt="Five Night and Freddy"></td>
+    <td><img src="image/grinch.jpg" alt="Grinch"></td>
+  </tr>
+  <tr>
+    <td><img src="image/it.png" alt="It"></td>
+    <td><img src="image/lion king.jpg" alt="Lion King"></td>
+    <td><img src="image/matrix.jpg" alt="Matrix"></td>
+  </tr>
+  <tr>
+    <td><img src="image/moana2.jpg" alt="Moana 2"></td>
+    <td><img src="image/mufasa.jpg" alt="Mufasa"></td>
+    <td><img src="image/shrek.jpg" alt="Shrek"></td>
+  </tr>
+  <tr>
+    <td><img src="image/sonic.jpg" alt="Sonic"></td>
+    <td><img src="image/spider man.jpg" alt="Spider-Man"></td>
+    <td><img src="image/thor.jpg" alt="Thor"></td>
+  </tr>
+  <tr>
+    <td><img src="image/up.jpg" alt="Up"></td>
+    <td><img src="image/venom.jpg" alt="Venom"></td>
+    <td><img src="image/winnie the pooh.jpg" alt="Winnie the Pooh"></td>
+  </tr>
+  <tr>
+    <td><img src="image/wood.jpg" alt="Wood"></td>
+  </tr>
+</table>
+
+</body>
+
+<script>
+    // Movie data
+    const movies = [
+        { id: 1, title: "127 Hours", image: "image/127 hours.jpg" },
+        { id: 2, title: "Annabelle", image: "image/annabelle.jpg" },
+        { id: 3, title: "Joker", image: "image/joker.jpg" },
+        { id: 4, title: "Avengers", image: "image/avengers.jpg" },
+        { id: 5, title: "Barbie", image: "image/barbie.jpg" },
+        { id: 6, title: "Batman", image: "image/batman.jpg" },
+        { id: 7, title: "Black Panther", image: "image/black panther.jpg" },
+        { id: 8, title: "Deadpool", image: "image/deadpool.jpg" },
+        { id: 9, title: "Dune", image: "image/dune.jpg" },
+        { id: 10, title: "E.T", image: "image/et.jpg" },
+        { id: 11, title: "Five Nights at Freddy's", image: "image/five night and freddy.jpg" },
+        { id: 12, title: "Grinch", image: "image/grinch.jpg" },
+        { id: 13, title: "It", image: "image/it.png" },
+        { id: 14, title: "Lion King", image: "image/lion king.jpg" },
+        { id: 15, title: "Matrix", image: "image/matrix.jpg" },
+        { id: 16, title: "Moana 2", image: "image/moana2.jpg" },
+        { id: 17, title: "Mufasa", image: "image/mufasa.jpg" },
+        { id: 18, title: "Shrek", image: "image/shrek.jpg" },
+        { id: 19, title: "Sonic", image: "image/sonic.jpg" },
+        { id: 20, title: "Spider-Man", image: "image/spider man.jpg" },
+        { id: 21, title: "Thor", image: "image/thor.jpg" },
+        { id: 22, title: "Up", image: "image/up.jpg" },
+        { id: 23, title: "Venom", image: "image/venom.jpg" },
+        { id: 24, title: "Winnie the Pooh", image: "image/winnie the pooh.jpg" },
+        { id: 25, title: "Wood", image: "image/wood.jpg" }
+    ];
+
+    const table = document.getElementById('movietable');
+    const cells = table.querySelectorAll('td');
+
+    cells.forEach((cell, index) => {
+        const movie = movies[index]; 
+        if (movie) {
+            cell.addEventListener('click', () => {
+                window.location.href = `product_details.html?id=${movie.id}`;
+            });
+        }
+    });
+
+  </script>
+</html>
+

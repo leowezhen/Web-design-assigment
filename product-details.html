@@ -1,0 +1,99 @@
+<?PHP
+session_start();
+include("header.php");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Details</title>
+  <style>
+    body{
+        background-color: #363636;
+    }
+
+    #movie-poster {
+      max-width: 300px;
+      height: auto;
+      margin: 30px 44%;
+    }
+
+    #movie-details {
+      width: 95%;
+      height: auto;
+      margin: auto;
+      background-color:rgb(240, 240, 240);
+    }
+
+    .select-date {
+    text-size-adjust: 100%;
+    font-family: mont-semibold, Monserrat; 
+    font-feature-settings: normal;
+    font-size: 22px;
+    font-variation-settings: normal;
+    font-weight: 600;
+    line-height: 28px;
+    tab-size: 4;
+    color: rgb(170, 170, 170);
+    }
+
+  </style>
+</head>
+<body>
+  <img id="movie-poster" src="" alt="Movie Poster">
+  <div id="movie-details">
+  <p class="select-date">Select Date</p>
+    
+  </div>
+
+  <div id="error-message" style="display: none; color: red;">
+    <h2>Movie not found!</h2>
+  </div>
+
+<script>
+  // Movie data
+  const movies = [
+  { id: 1, title: "127 Hours", image: "image/127 hours.jpg" },
+    { id: 2, title: "Annabelle", image: "image/annabelle.jpg" },
+    { id: 3, title: "Joker", image: "image/joker.jpg" },
+    { id: 4, title: "Avengers", image: "image/avengers.jpg" },
+    { id: 5, title: "Barbie", image: "image/barbie.jpg" },
+    { id: 6, title: "Batman", image: "image/batman.jpg" },
+    { id: 7, title: "Black Panther", image: "image/black panther.jpg" },
+    { id: 8, title: "Deadpool", image: "image/deadpool.jpg" },
+    { id: 9, title: "Dune", image: "image/dune.jpg" },
+    { id: 10, title: "E.T", image: "image/et.jpg" },
+    { id: 11, title: "Five Nights at Freddy's", image: "image/five night and freddy.jpg" },
+    { id: 12, title: "Grinch", image: "image/grinch.jpg" },
+    { id: 13, title: "It", image: "image/it.png" },
+    { id: 14, title: "Lion King", image: "image/lion king.jpg" },
+    { id: 15, title: "Matrix", image: "image/matrix.jpg" },
+    { id: 16, title: "Moana 2", image: "image/moana2.jpg" },
+    { id: 17, title: "Mufasa", image: "image/mufasa.jpg" },
+    { id: 18, title: "Shrek", image: "image/shrek.jpg" },
+    { id: 19, title: "Sonic", image: "image/sonic.jpg" },
+    { id: 20, title: "Spider-Man", image: "image/spider man.jpg" },
+    { id: 21, title: "Thor", image: "image/thor.jpg" },
+    { id: 22, title: "Up", image: "image/up.jpg" },
+    { id: 23, title: "Venom", image: "image/venom.jpg" },
+    { id: 24, title: "Winnie the Pooh", image: "image/winnie the pooh.jpg" },
+    { id: 25, title: "Wood", image: "image/wood.jpg" }
+  ];
+
+  // Extract movie ID from URL
+  const params = new URLSearchParams(window.location.search);
+  const movieId = parseInt(params.get('id'));
+
+  // Find the movie by ID
+  const movie = movies.find(m => m.id === movieId);
+
+  // Display movie details or an error message
+  if (movie) {
+    document.getElementById('movie-poster').src = movie.image;
+    document.getElementById('movie-title').textContent = movie.title;
+  } else {
+    document.getElementById('error-message').style.display = 'block';
+    document.getElementById('movie-details').style.display = 'none';
+  }
+</script>
+</body>
+</html>

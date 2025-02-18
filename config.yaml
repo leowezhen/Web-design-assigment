@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+name: autoupdate-config
+data: 
+REPOSITORY_URLL: https://git.example.com/repository
+DEPLOYMENT_FILE: app.yaml

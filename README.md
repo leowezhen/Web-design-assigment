@@ -1,1 +1,11 @@
-hey guys this will be our web design assigment for degree year 1 sem 3
+For this assigment must have element are
+
+●Media elements (text, graphic, audio, video, and animation)
+●Hypertext and hypermedia
+●List
+●Formatting
+●Hotspot / image map
+●Table
+●Form
+●CSS for all the GUI design (use External Style Sheet effectively)
+JavaScript
